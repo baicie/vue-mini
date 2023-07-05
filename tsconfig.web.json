@@ -11,11 +11,10 @@
   "exclude": [
     "node_modules",
     "**/dist",
-    "**/__tests__/**/*",
+    "**/__tests__/**",
     "**/gulpfile.ts",
     "**/test-helper",
     "packages/test-utils",
-    "**/*.md",
-    "**/demo/**"
+    "**/*.md"
   ]
 }

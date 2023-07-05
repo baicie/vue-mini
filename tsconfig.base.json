@@ -16,7 +16,7 @@
     "rootDir": ".",
     "types": [],
     "paths": {
-      "@design-template/*": ["packages/*"]
+      "@baicie/vue-mini/*": ["packages/*"]
     }
   }
 }

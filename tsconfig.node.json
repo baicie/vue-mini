@@ -6,13 +6,6 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": [
-    "internal/**/*",
-    "internal/**/*.json",
-    "scripts/**/*",
-    "packages/theme-chalk/*",
-    "packages/design-template/version.ts",
-    "packages/design-template/package.json"
-  ],
+  "include": ["scripts/**/*"],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
 }
