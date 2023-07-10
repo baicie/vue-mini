@@ -1,15 +1,18 @@
 let activeEffect
+const effectStack = []
 
 function  effect(fn) {
     const effectFn = ()=>{
-      console.log('1')
       cleanup(effectFn)
       // 函数effectFn执行时会将其设置为activeEffect
       activeEffect = effectFn
+      effectStack.push(effectFn)
       // 闭包保存传入时的fn
       fn()
+
+      effectStack.pop()
+      activeEffect = effectStack[effectStack.length-1]
     }
-    console.log('2')
     // activeEffect.deps用来存储所有与该副作用函数相关联的依赖集合
     activeEffect.deps = []
 
@@ -53,7 +56,15 @@ function trigger(target, key) {
     return
   const effects = depsMap.get(key)
 
-  const effectsToRun  = new Set(effects)
+  const effectsToRun  = new Set()
+
+  effects && effects.forEach((effectFn) =>{
+    // trigger触发的副作用函数与当前正在执行的副作用函数不等
+    if(effectFn !== activeEffect){
+      effectsToRun.add(effectFn)
+    } 
+  })
+
   effectsToRun.forEach(effectsFn => effectsFn())
   // effects && effects.forEach(fn => fn())
 }
