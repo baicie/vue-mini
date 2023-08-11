@@ -1,3 +1,5 @@
+import { isObject } from '@baicie/vue-shared'
+
 export const enum ReactiveFlags {
   SKIP = '__v_skip',
   IS_REACTIVE = '__v_isReactive',
@@ -36,5 +38,10 @@ export function createReactiveObject(
   collectionHandler: Function,
   proxyMap: WeakMap<Target, any>,
 ) {
-  if(!isOb)
+  if (!isObject(target)) {
+    if (__DEV__)
+      console.warn(`value cannot be made reactive: ${String(target)}`)
+
+    return target
+  }
 }

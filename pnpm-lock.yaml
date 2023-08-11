@@ -59,7 +59,11 @@ importers:
 
   packages/core: {}
 
-  packages/reactivity: {}
+  packages/reactivity:
+    dependencies:
+      '@baicie/vue-shared':
+        specifier: workspace:^
+        version: link:../shared
 
   packages/shared: {}
 
