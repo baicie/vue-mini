@@ -11,5 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "@baicie/vue-shared": "workspace:^"
+  },
+  "buildOptions": {
+    "name": "VueMiniReactivity",
+    "format": [
+      "esm-bundler",
+      "esm-browser",
+      "cjs",
+      "global"
+    ]
   }
 }

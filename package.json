@@ -6,7 +6,9 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cz": "bcz"
+    "cz": "bcz",
+    "build-bundle": "tsx scripts/build.ts",
+    "build-types": "tsx scripts/build-types.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.6",
     "@baicie/commitizen": "^0.1.0",
+    "@pnpm/find-workspace-packages": "^6.0.9",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-json": "^6.0.0",
@@ -24,6 +27,7 @@
     "commitizen": "^4.3.0",
     "cz-customizable": "^7.0.0",
     "eslint": "^8.44.0",
+    "execa": "^7.2.0",
     "rollup": "^3.28.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-polyfill-node": "^0.12.0",
