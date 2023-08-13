@@ -3,3 +3,5 @@ node_modules
 
 # Bundle
 dist
+
+.rollup.cache

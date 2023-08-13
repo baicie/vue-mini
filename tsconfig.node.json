@@ -6,6 +6,5 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": ["scripts/**/*"],
-  "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
+  "include": ["scripts/*.ts", "scripts/rollup.config.ts"]
 }
