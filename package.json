@@ -9,7 +9,7 @@
     "cz": "bcz",
     "build-bundle": "tsx scripts/build.ts",
     "build-types": "tsx scripts/build-types.ts",
-    "build-test": "rollup --config rollup.config.js --environment NODE_ENV:undefined,TARGET:reactivity"
+    "build-test": "rollup --config scripts/rollup.config.js --environment NODE_ENV:undefined,TARGET:reactivity"
   },
   "keywords": [],
   "author": "",

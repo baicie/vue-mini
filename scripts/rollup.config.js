@@ -15,6 +15,7 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 const packageDir = path.resolve(
   __dirname,
+  '..',
   "packages",
   process.env.TARGET ?? ""
 );
