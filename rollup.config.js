@@ -1,27 +1,35 @@
 // @ts-check
-import json from "@rollup/plugin-json";
-import path from "node:path";
-import esbuild from "rollup-plugin-esbuild";
-// import { pkgsPath } from "./paths.js";
-import process from "node:process";
 import commonJS from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import path from "node:path";
+import process from "node:process";
+import esbuild from "rollup-plugin-esbuild";
 import polyfillNode from "rollup-plugin-polyfill-node";
-import { createRequire } from "node:module";
-import { fileURLToPath } from "node:url";
+import { __dirname, pkgsPath, require } from "./scripts/paths.js";
 
-const require = createRequire(import.meta.url);
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
+/**
+ * @type {string|undefined}
+ */
+const target = process.env.TARGET
 
-const packageDir = path.resolve(
-  __dirname,
-  '..',
-  "packages",
-  process.env.TARGET ?? ""
-);
-console.log("packageDir", esbuild);
+if(!target){
+  throw new Error('TARGET package must be specified via --environment flag.') 
+}
+
+const packageDir = path.resolve(pkgsPath,target);
+
+/**
+ * 
+ * @param {string} p 
+ * @returns 
+ */
 const resolve = (p) => path.resolve(packageDir, p);
 const name = "";
+
+/**
+ * @type {Record<string,import('rollup').OutputOptions>}
+ */
 const outputConfigs = {
   "esm-bundler": {
     file: resolve(`dist/${name}.esm-bundler.js`),
@@ -54,31 +62,25 @@ const outputConfigs = {
   },
 };
 
-// /**
-//  * @type {Manifest}
-//  */
+/**
+ * @type {import('./scripts/types.d.ts').Manifest}
+ */
 const pkg = require(resolve(`package.json`));
 const packageOptions = pkg.buildOptions || {};
-console.log(pkg);
+
 const defaultFormats = ["esm-bundler", "cjs"];
 const packageFormats = packageOptions.formats || defaultFormats;
 const packageConfigs = packageFormats.map((format) =>
   createConfig(format, outputConfigs[format])
 );
 
-console.log("packageConfigs", packageConfigs);
 
 export default packageConfigs;
 
-// /**
-//  *
-//  * @param {string} format
-//  * @param {OutputOptions} output
-//  * @returns {RollupOptions}
-//  */
 /**
  * @param {string} format
- * @param {any} output
+ * @param {import('rollup').OutputOptions} output
+ * @returns {import('rollup').RollupOptions}
  */
 function createConfig(format, output) {
   let entryFile = /runtime$/.test(format) ? `src/runtime.ts` : `src/index.ts`;

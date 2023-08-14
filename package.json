@@ -9,7 +9,7 @@
     "cz": "bcz",
     "build-bundle": "tsx scripts/build.ts",
     "build-types": "tsx scripts/build-types.ts",
-    "build-test": "rollup --config scripts/rollup.config.js --environment NODE_ENV:undefined,TARGET:reactivity"
+    "build-test": "rollup --config rollup.config.js --environment NODE_ENV:development,TARGET:reactivity"
   },
   "keywords": [],
   "author": "",
@@ -28,10 +28,12 @@
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/eslint": "^8.40.2",
     "commitizen": "^4.3.0",
+    "consola": "^3.2.3",
     "cz-customizable": "^7.0.0",
     "esbuild": "^0.19.1",
     "eslint": "^8.44.0",
     "execa": "^7.2.0",
+    "picocolors": "^1.0.0",
     "rollup": "^3.26.3",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-polyfill-node": "^0.12.0",

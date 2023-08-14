@@ -1,18 +1,13 @@
-import os from "node:os";
 import type { Project as PnpmProject } from "@pnpm/find-workspace-packages";
-import { ProjectManifest } from "@pnpm/types";
 import { findWorkspacePackages } from "@pnpm/find-workspace-packages";
-import { configPath, normalizePath, pkgsPath } from "./paths";
 import { execa } from "execa";
+import os from "node:os";
 import path from "node:path";
-export type Manifest = ProjectManifest & {
-  buildOptions: {
-    name?: string;
-    compat?: boolean;
-    env?: string;
-    formats: ("global" | "cjs" | "esm-bundler" | "esm-browser")[];
-  };
-};
+import color from 'picocolors';
+// @ts-ignore
+import { pkgsPath } from "./paths";
+import { Manifest } from "./types";
+import consola from 'consola';
 
 interface Project extends PnpmProject {
   manifest: Manifest;
@@ -61,18 +56,18 @@ async function build(project: Project) {
     return;
   }
 
-  const env = pkg.buildOptions;
+  const env = (pkg.buildOptions && pkg.buildOptions.env) || 'development';
   await execa(
     "rollup",
     [
-      `--config scripts/rollup.config.js`,
+      `-c`,
       "--environment",
       [`NODE_ENV:${env}`, `TARGET:${target}`].filter(Boolean).join(","),
     ],
-    { stdio: "inherit" }
+    { stdio: "inherit"}
   );
 }
 
 main().catch((err) => {
-  console.error(err);
+  consola.error(color.red(err));
 });

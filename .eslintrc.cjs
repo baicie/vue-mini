@@ -4,7 +4,7 @@ const NodeGlobals = ['module', 'require']
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['jest'],
   rules: {
@@ -13,7 +13,7 @@ module.exports = {
       'error',
       // we are only using this rule to check for unused arguments since TS
       // catches unused variables but not args.
-      { varsIgnorePattern: '.*', args: 'none' },
+      { varsIgnorePattern: '.*', args: 'none' }
     ],
     // most of the codebase are expected to be env agnostic
     'no-restricted-globals': ['error', ...DOMGlobals, ...NodeGlobals],
@@ -26,8 +26,8 @@ module.exports = {
       // tsc compiles assignment spread into Object.assign() calls, but esbuild
       // still generates verbose helpers, so spread assignment is also prohiboted
       'ObjectExpression > SpreadElement',
-      'AwaitExpression',
-    ],
+      'AwaitExpression'
+    ]
   },
   overrides: [
     // tests, no restrictions (runs in Node / jest with jsdom)
@@ -37,40 +37,40 @@ module.exports = {
         'no-restricted-globals': 'off',
         'no-restricted-syntax': 'off',
         'jest/no-disabled-tests': 'error',
-        'jest/no-focused-tests': 'error',
-      },
+        'jest/no-focused-tests': 'error'
+      }
     },
     // shared, may be used in any env
     {
       files: ['packages/shared/**'],
       rules: {
-        'no-restricted-globals': 'off',
-      },
+        'no-restricted-globals': 'off'
+      }
     },
     // Packages targeting DOM
     {
       files: ['packages/{vue,vue-compat,runtime-dom}/**'],
       rules: {
-        'no-restricted-globals': ['error', ...NodeGlobals],
-      },
+        'no-restricted-globals': ['error', ...NodeGlobals]
+      }
     },
     // Packages targeting Node
     {
       files: [
-        'packages/{compiler-sfc,compiler-ssr,server-renderer,reactivity-transform}/**',
+        'packages/{compiler-sfc,compiler-ssr,server-renderer,reactivity-transform}/**'
       ],
       rules: {
         'no-restricted-globals': ['error', ...DOMGlobals],
-        'no-restricted-syntax': 'off',
-      },
+        'no-restricted-syntax': 'off'
+      }
     },
     // Private package, browser only + no syntax restrictions
     {
       files: ['packages/template-explorer/**', 'packages/sfc-playground/**'],
       rules: {
         'no-restricted-globals': ['error', ...NodeGlobals],
-        'no-restricted-syntax': 'off',
-      },
+        'no-restricted-syntax': 'off'
+      }
     },
     // Node scripts
     {
@@ -78,12 +78,12 @@ module.exports = {
         'scripts/**',
         '*.{js,ts}',
         'packages/**/index.js',
-        'packages/size-check/**',
+        'packages/size-check/**'
       ],
       rules: {
         'no-restricted-globals': 'off',
-        'no-restricted-syntax': 'off',
-      },
-    },
-  ],
+        'no-restricted-syntax': 'off'
+      }
+    }
+  ]
 }
