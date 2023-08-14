@@ -86,7 +86,7 @@ importers:
 
   packages/shared: {}
 
-  packages/vue-mini: {}
+  packages/vue: {}
 
   playground/main: {}
 
