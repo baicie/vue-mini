@@ -18,6 +18,9 @@ export interface Target {
 }
 
 export const reactiveMap = new WeakMap<Target, any>();
+export const shallowReactiveMap = new WeakMap<Target, any>();
+export const readonlyMap = new WeakMap<Target, any>();
+export const shallowReadonlyMap = new WeakMap<Target, any>();
 
 const enum TargetType {
   INVALID = 0,
@@ -54,6 +57,36 @@ export function reactive(target: Object) {
     mutableCollectionHandlers,
     reactiveMap
   );
+}
+
+export function shallowReactive<T extends object>(target: T) {
+  return createReactiveObject(
+    target,
+    false,
+    {},
+    {},
+    shallowReactiveMap
+  )
+}
+
+export function readonly<T extends object>(target: T) {
+  return createReactiveObject(
+    target,
+    true,
+    {},
+    {},
+    readonlyMap
+  )
+}
+
+export function shallowReadonly<T extends object>(target: T) {
+  return createReactiveObject(
+    target,
+    true,
+    {},
+    {},
+    shallowReadonlyMap
+  )
 }
 
 export function createReactiveObject(

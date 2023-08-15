@@ -10,3 +10,6 @@ export function toTypeString(value: unknown): string {
 export function toRawType(value: unknown): string {
   return toTypeString(value);
 }
+
+
+export const extend = Object.assign
