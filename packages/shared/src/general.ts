@@ -13,3 +13,4 @@ export function toRawType(value: unknown): string {
 
 
 export const extend = Object.assign
+export const isArray = Array.isArray
