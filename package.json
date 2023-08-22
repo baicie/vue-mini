@@ -1,6 +1,6 @@
 {
   "packageManager": "pnpm@8.6.2",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "private": "true",
@@ -10,7 +10,8 @@
     "dev": "tsx scripts/dev.ts",
     "build-bundle": "tsx scripts/build.ts",
     "build-types": "tsx scripts/build-types.ts",
-    "build-test": "rollup --config rollup.config.js --environment NODE_ENV:development,TARGET:reactivity"
+    "build-test": "rollup --config rollup.config.js --environment NODE_ENV:development,TARGET:reactivity",
+    "pub":"tsx scripts/publish.ts"
   },
   "keywords": [],
   "author": "",

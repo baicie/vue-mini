@@ -1,6 +1,6 @@
 {
   "name": "@vuemini/reactivity",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -20,5 +20,8 @@
       "cjs",
       "global"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
