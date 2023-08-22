@@ -25,7 +25,7 @@ const packageDir = path.resolve(pkgsPath,target);
  * @returns 
  */
 const resolve = (p) => path.resolve(packageDir, p);
-const name = "";
+const name =  path.basename(packageDir)
 
 /**
  * @type {Record<string,import('rollup').OutputOptions>}

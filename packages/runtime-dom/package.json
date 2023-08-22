@@ -1,15 +1,30 @@
 {
   "name": "@vuemini/runtime-dom",
   "version": "0.0.1",
-  "description": "",
+  "description": "@vuemini/runtime-dom",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "buildOptions":{
+    "name": "VueMiniRuntimeDOM",
+    "formats": [
+      "esm-bundler",
+      "esm-browser",
+      "cjs",
+      "global"
+    ]
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@vuemini/runtime-core": "workspace:^",
+    "@vuemini/shared": "workspace:^",
+    "csstype": "^3.1.2"
   }
 }

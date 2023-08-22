@@ -1,1 +1,1 @@
-export const dev = true;
+export * from '@vuemini/runtime-dom'

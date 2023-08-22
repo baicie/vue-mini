@@ -1,15 +1,27 @@
 {
   "name": "@vuemini/runtime-core",
   "version": "0.0.1",
-  "description": "",
+  "description": "@vuemini/runtime-core",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "buildOptions": {
+    "name": "VueMiniRuntimeCore",
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@vuemini/reactivity": "workspace:^",
+    "@vuemini/shared": "workspace:^"
   }
 }

@@ -3,8 +3,15 @@
   "version": "0.0.1",
   "description": "",
   "main": "src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "buildOptions": {
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
   },
   "keywords": [],
   "author": "",

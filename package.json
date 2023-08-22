@@ -8,10 +8,11 @@
   "scripts": {
     "cz": "bcz",
     "dev": "tsx scripts/dev.ts",
+    "build":"pnpm run build-bundle",
     "build-bundle": "tsx scripts/build.ts",
     "build-types": "tsx scripts/build-types.ts",
     "build-test": "rollup --config rollup.config.js --environment NODE_ENV:development,TARGET:reactivity",
-    "pub":"tsx scripts/publish.ts"
+    "pub": "tsx scripts/publish.ts"
   },
   "keywords": [],
   "author": "",
@@ -29,10 +30,12 @@
     "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/eslint": "^8.40.2",
+    "@types/minimist": "^1.2.2",
     "commitizen": "^4.3.0",
     "consola": "^3.2.3",
     "cz-customizable": "^7.0.0",
     "esbuild": "^0.19.1",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
     "eslint": "^8.44.0",
     "execa": "^7.2.0",
     "picocolors": "^1.0.0",
