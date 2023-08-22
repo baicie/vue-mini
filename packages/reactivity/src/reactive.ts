@@ -1,4 +1,4 @@
-import { isObject, toRawType } from "@baicie/vue-shared";
+import { isObject, toRawType } from "@vuemini/shared";
 import { mutableCollectionHandlers, mutableHandlers } from "./base-handler";
 
 export const enum ReactiveFlags {

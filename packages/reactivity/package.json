@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/vue-reactivity",
+  "name": "@vuemini/reactivity",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@baicie/vue-shared": "workspace:^"
+    "@vuemini/shared": "workspace:^"
   },
   "buildOptions": {
     "name": "VueMiniReactivity",

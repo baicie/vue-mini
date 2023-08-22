@@ -1,5 +1,5 @@
 import { ReactiveFlags, Target, reactiveMap, readonlyMap, shallowReactiveMap, shallowReadonlyMap } from "./reactive"
-import { isObject, isArray } from "@baicie/vue-shared";
+import { isObject, isArray } from "@vuemini/shared";
 
 export type CollectionTypes = IterableCollections | WeakCollections
 

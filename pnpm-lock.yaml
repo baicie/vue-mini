@@ -80,7 +80,7 @@ importers:
 
   packages/reactivity:
     dependencies:
-      '@baicie/vue-shared':
+      '@vuemini/shared':
         specifier: workspace:^
         version: link:../shared
 
