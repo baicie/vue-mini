@@ -12,7 +12,9 @@
     "build-bundle": "tsx scripts/build.ts",
     "build-types": "tsx scripts/build-types.ts",
     "build-test": "rollup --config rollup.config.js --environment NODE_ENV:development,TARGET:reactivity",
-    "pub": "tsx scripts/publish.ts"
+    "pub": "tsx scripts/publish.ts",
+    "lint": "eslint --cache --ext .ts packages/*/{src,__tests__}/**.ts",
+    "format": "prettier --write --cache \"**/*.[tj]s?(x)\""
   },
   "keywords": [],
   "author": "",

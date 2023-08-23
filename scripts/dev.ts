@@ -8,8 +8,15 @@ import { polyfillNode } from 'esbuild-plugin-polyfill-node'
 
 const args = minimist(process.argv.slice(2))
 const target = args._[0] || 'vue'
-const format = args.f || 'global'
+const format = args.f || 'esm'
 const pkg = require(`../packages/${target}/package.json`)
+
+const outputFormat = format.startsWith('global')
+  ? 'iife'
+  : format === 'cjs'
+  ? 'cjs'
+  : 'esm'
+
 
 const postfix = format.endsWith('-runtime')
   ? `runtime.${format.replace(/-runtime$/, '')}`
@@ -37,8 +44,8 @@ const plugins:Plugin[] = [
 
 if (format === 'cjs' || pkg.buildOptions?.enableNonBrowserBranches) {
   plugins.push(polyfillNode())
-}
-console.log(process.env.NODE_ENV)
+} 
+
 esbuild
 .context({
   entryPoints: [path.resolve(__dirname, `../packages/${target}/src/index.ts`)],
@@ -46,8 +53,8 @@ esbuild
   bundle: true,
   external:[],
   sourcemap: true,
-  minify: true,
-  format:'cjs',
+  minify: false,
+  format:outputFormat,
   globalName:'Vue',
   platform: format === 'cjs' ? 'node' : 'browser', 
   plugins,
