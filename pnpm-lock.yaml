@@ -126,14 +126,6 @@ importers:
         specifier: workspace:^
         version: link:../shared
 
-  playground:
-    dependencies:
-      '@vuemini/shared':
-        specifier: workspace:^
-        version: link:../packages/shared
-
-  playground/main: {}
-
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
