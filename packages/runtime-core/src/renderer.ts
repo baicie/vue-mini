@@ -22,7 +22,7 @@ export interface RendererOptions<
   HostNode = RendererNode,
   HostElement = RendererElement
 >{
-
+  patchProp():void
 }
 
 export function createRenderer<
@@ -36,5 +36,7 @@ function baseCreateRenderer<
 HostNode = RendererNode,
 HostElement = RendererElement
 >( options:RendererOptions):Renderer<HostElement>{
-
+  const target = globalThis as any
+  
+  target.__VUE__ = true
 }
