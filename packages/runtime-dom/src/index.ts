@@ -15,7 +15,7 @@ function ensureRenderer(){
 
 export const createApp = ((...args) => {
   const app = ensureRenderer().render(...args)
-
+  console.log(app)
   return app
 }) as RootRenderFunction<Element | ShadowRoot>
 

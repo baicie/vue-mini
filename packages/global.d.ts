@@ -43,10 +43,3 @@ declare module 'estree-walker' {
     } & ThisType<{ skip: () => void }>
   )
 }
-
-declare interface String {
-  /**
-   * @deprecated Please use String.prototype.slice instead of String.prototype.substring in the repository.
-   */
-  substring(start: number, end?: number): string
-}

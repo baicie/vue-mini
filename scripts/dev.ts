@@ -60,6 +60,7 @@ esbuild
   plugins,
   define: {
     __COMMIT__: `"dev"`,
+    __VERSION__: `"${pkg.version}"`,
   }
 })
 .then(ctx => ctx.watch())

@@ -9,11 +9,12 @@ import { execa } from "execa";
 const getWorkspacePackages = () => findWorkspacePackages(pkgsPath);
 
 async function main() {
+  const version = process.env.TAG_VERSION || '0.0.0'
   const pkgs = (await getWorkspacePackages()).filter(
     (item) => !item.manifest.private
   ) as Project[];
 
-  await updateVersion('0.0.1', pkgs)
+  await updateVersion(version, pkgs)
 
   await publishAll(pkgs);
 }

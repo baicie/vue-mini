@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsx index.ts"
+    "test": "tsx index.ts",
+    "dev":"vite"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vuemini/shared": "workspace:^"
+    "@vuemini/shared": "workspace:^",
+    "vuemini": "workspace:^"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
   }
 }

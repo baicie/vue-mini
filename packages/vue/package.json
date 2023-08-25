@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "private": "true",
-  "main": "index.js",
+  "main": "dist/vue.esm.js",
+  "module": "dist/vue.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

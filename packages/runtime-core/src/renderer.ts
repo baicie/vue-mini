@@ -1,4 +1,4 @@
-import { CreateAppFunction } from "./api-create-app"
+import { CreateAppFunction, createAppAPI, createAppApi } from "./api-create-app"
 import { ComponentInternalInstance } from "./component"
 import { flushPostFlushCbs, flushPreFlushCbs } from "./scheduler"
 import { VNode } from "./vnode"
@@ -85,5 +85,10 @@ HostElement = RendererElement
 
       container._vnode = vnode
     }
+  }
+
+  return {
+    render,
+    createApp:createAppAPI(render) 
   }
 }

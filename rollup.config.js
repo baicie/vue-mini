@@ -18,7 +18,7 @@ if(!target){
 }
 
 const packageDir = path.resolve(pkgsPath,target);
-
+const masterVersion = require('./package.json').version
 /**
  * 
  * @param {string} p 
@@ -94,7 +94,7 @@ function createConfig(format, output) {
 
   function resolveDefine() {
     const replacements = {
-      __VERSION__: `"${"0.0.1"}"`,
+      __VERSION__: `"${masterVersion}"`,
     };
     return replacements;
   }
