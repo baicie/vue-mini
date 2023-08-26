@@ -55,7 +55,7 @@ esbuild
   sourcemap: true,
   minify: false,
   format:outputFormat,
-  globalName:'Vue',
+  globalName:'VueMini',
   platform: format === 'cjs' ? 'node' : 'browser', 
   plugins,
   define: {

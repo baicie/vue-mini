@@ -7,8 +7,9 @@ let renderer:Renderer<Element| ShadowRoot>
 const rendererOptions = extend({ patchProp }, nodeOps)
 
 function ensureRenderer(){
-  return renderer || (
-    renderer = createRenderer<Node, Element | ShadowRoot>(rendererOptions)
+  return (
+    renderer ||
+    (renderer = createRenderer<Node, Element | ShadowRoot>(rendererOptions))
   )
 }
 

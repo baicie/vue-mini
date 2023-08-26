@@ -1,5 +1,5 @@
-import {createApp} from 'vuemini';
+import {createApp,version} from 'vuemini';
 
 const app = createApp()
-
+console.log(app)
 // app.

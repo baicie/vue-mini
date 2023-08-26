@@ -21,13 +21,14 @@ export interface RendererNode {
 export interface RendererElement extends RendererNode {}
 
 type PatchFn = (
+  // 旧节点
   n1:VNode|null,
+  // 新节点
   n2:VNode,
   container:RendererElement,
   anchor:RendererNode|null,
   parentComponent:ComponentInternalInstance|null,
   parentSuspense: null,
-  isSVG:boolean,
   slotScopeIds?:string[]|null,
   optimized?:boolean
 ) => void
@@ -43,13 +44,15 @@ export function createRenderer<
   HostNode = RendererNode,
   HostElement = RendererElement
 >(options:RendererOptions<HostNode,HostElement>){
+  console.log('createRenderer')
   return baseCreateRenderer<HostNode,HostElement>(options)
 }
 
 function baseCreateRenderer<
 HostNode = RendererNode,
 HostElement = RendererElement
->( options:RendererOptions):Renderer<HostElement>{
+// 奇怪的问题 HostElement = RendererElement应该是一样的
+>( options:RendererOptions<HostNode, HostElement>):Renderer<RendererElement>{
   const target = globalThis as any
   
   target.__VUE__ = true
@@ -63,28 +66,32 @@ HostElement = RendererElement
     anchor = null,
     parentComponent = null,
     parentSuspense = null,
-    isSVG = false,
     slotScopeIds = null,
     optimized = false
   ) =>{
-    // if(n1 === n2)
+    // 引用相同
+    if(n1 === n2){
+      return
+    }
   }
 
   const render:RootRenderFunction = (vnode,container) => {
     if(vnode === null){
       if(container._vnode){
+        // 以前有值  现在没有值卸载
         // unmount(container._vnode,null,null,true)
-      }else{
-        // 
       }
-
-      // 执行调度队列中所有的pre类型 前置
-      flushPreFlushCbs()
-      // 执行所有后置cb
-      flushPostFlushCbs()
-
-      container._vnode = vnode
+    }else{
+      // 计算虚拟dom
+      patch(container._vnode||null,vnode,container,null,null,null)
     }
+
+    // 执行调度队列中所有的pre类型 前置
+    flushPreFlushCbs()
+    // 执行所有后置cb
+    flushPostFlushCbs()
+
+    container._vnode = vnode
   }
 
   return {
