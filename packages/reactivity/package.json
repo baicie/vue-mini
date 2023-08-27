@@ -2,7 +2,7 @@
   "name": "@vuemini/reactivity",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "files": [
     "index.js",
     "dist"
