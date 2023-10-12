@@ -33,6 +33,7 @@
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/eslint": "^8.44.2",
     "@types/minimist": "^1.2.2",
+    "@types/node": "^20.8.4",
     "commitizen": "^4.3.0",
     "consola": "^3.2.3",
     "cz-customizable": "^7.0.0",
