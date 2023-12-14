@@ -23,5 +23,8 @@
   "dependencies": {
     "@vuemini/reactivity": "workspace:^",
     "@vuemini/shared": "workspace:^"
+  },
+  "scripts": {
+    "dev": "pnpm tsx ./src/test.ts"
   }
 }
