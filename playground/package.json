@@ -15,6 +15,6 @@
     "vuemini": "workspace:^"
   },
   "devDependencies": {
-    "vite": "^4.4.9"
+    "vite": "^5.4.2"
   }
 }

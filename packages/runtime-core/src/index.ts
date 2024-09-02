@@ -22,9 +22,9 @@ export function createRenderer(options: Options) {
     container._vnode = vnode
   }
 
-  function shouldSetAsProps(el, key, value) {
-    if()
-  }
+  // function shouldSetAsProps(el, key, value) {
+  //   if()
+  // }
 
   function mountElement(vnode, container) {
     const el = createElement(vnode.type)
